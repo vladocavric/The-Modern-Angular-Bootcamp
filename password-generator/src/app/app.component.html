@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Password Generator</h1>
+  <div>
+    <label for="length">Length</label>
+    <br>
+    <input type="number" name="length" id="length" [(ngModel)]="length">
+  </div>
+  <div>
+    <input type="checkbox" id="letters" [(ngModel)]="letters">
+    <label for="letters">use letter</label>
+  </div>
+  <div>
+    <input type="checkbox" id="numbers" [(ngModel)]="numbers">
+    <label for="numbers">use numbers</label>
+  </div>
+  <div>
+    <input type="checkbox" id="symbols" [(ngModel)]="symbols">
+    <label for="symbols">use symbols</label>
+  </div>
+  <button (click)="onGenerate()" [disabled]="!letters && !numbers && !symbols">Generate!
+    <span class="tooltiptext" *ngIf="!letters && !numbers && !symbols">please select some of the checkboxes to be able to generate password</span>
+  </button>
+
+  <div *ngIf="yourPassword" class="your-password">
+    <h3>Your Password</h3>
+    <p>{{yourPassword}}</p>
+  </div>
+</div>
