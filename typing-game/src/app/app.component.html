@@ -1,0 +1,19 @@
+<!--                [ngStyle]="{'color': letter === inputArr[i] ? 'has-text-success' : 'has-text-danger'}"-->
+<div class="container short">
+  <div class="card">
+    <div class="card-content">
+      <div class="content">
+        <h2 class="has-text-centered">Typing Challenge</h2>
+        <p class="has-text-centered">
+          <span *ngFor="let letter of text.split(''); let i = index"
+                [ngClass]="{'has-text-success' : letter === input[i],
+                'red-text' : letter !== input[i] && input[i]}"
+          >{{letter}}</span>
+        </p>
+        <p class="has-text-centered has-text-danger" *ngIf="paste">{{paste}}</p>
+        <input class="input" type="text" (input)="compare()" [(ngModel)]="input" (paste)="onPaste()">
+        <h1 class="has-text-centered has-text-success" *ngIf="input === text">You Win</h1>
+      </div>
+    </div>
+  </div>
+</div>
