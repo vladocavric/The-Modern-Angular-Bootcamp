@@ -1,0 +1,38 @@
+<div class="p-2">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination pagination-lg justify-content-center">
+      <li class="page-item" appClass [appClass]="{disabled: currentPage === 0}">
+        <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+      </li>
+      <li class="page-item disabled" *ngIf="currentPage - pagerItems >= 0"><a class="page-link">...</a></li>
+      <ng-container *appTimes="images.length; index as i">
+        <li class="page-item"
+            [appClass]="{active: i === currentPage}"
+            *ngIf="checkIndex(i)">
+          <a class="page-link" (click)="currentPage = i">{{i + 1}}</a>
+        </li>
+      </ng-container>
+      <li class="page-item disabled">
+        <a class="page-link" *ngIf="currentPage <= images.length - pagerItems - 1">...</a>
+      </li>
+      <li class="page-item" [appClass]="{disabled: currentPage === images.length - 1}">
+        <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+      </li>
+
+    </ul>
+  </nav>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <h1 [appClass]=" 'coral' ">{{images[currentPage].title}}</h1>
+    </div>
+    <div class="d-flex justify-content-center">
+      <img [src]="images[currentPage].url" alt="">
+    </div>
+  </div>
+</div>
+
+<ul *appTimes="5">
+  <li>ovo treba d ase ponovi x puta</li>
+</ul>

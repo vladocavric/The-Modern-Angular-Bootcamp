@@ -1,0 +1,11 @@
+<div class="ui styled accordion">
+  <ng-container *ngFor="let bellow of accordion; let i = index">
+  <div class="title" [ngClass]="{active: i === openItemIndex}" (click)="onIndexChange(i)">
+    <i class="dropdown icon"></i>
+    {{bellow.title}}
+  </div>
+  <div class="content animating" [ngClass]="{active: i === openItemIndex}">
+    <p class="transition" [ngClass]="i === openItemIndex ? 'visible' : 'hidden'">{{bellow.content}}</p>
+  </div>
+  </ng-container>
+</div>

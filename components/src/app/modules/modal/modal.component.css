@@ -1,0 +1,17 @@
+.dimmer {
+  display: flex !important;
+}
+
+.actions:empty {
+  display: none;
+}
+
+.actions-default {
+  display: none;
+}
+
+.actions:empty ~ .actions-default {
+  display: block;
+}
+
+

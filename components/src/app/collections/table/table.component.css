@@ -1,0 +1,7 @@
+.striped tr:hover, .striped tr:nth-child(even):hover {
+  background: rgba(144, 143, 143, 0.31);
+}
+
+/*tr:nth-child(even){*/
+/*  background: #ececec;*/
+/*}*/

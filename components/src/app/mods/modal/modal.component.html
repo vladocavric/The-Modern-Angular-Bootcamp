@@ -1,0 +1,30 @@
+<div>
+  <button class="ui button red" (click)="show = !show">open modal</button>
+</div>
+<div class="ui dimmer modals page transition" [ngClass]="show ? 'visible active' : 'hidden'">
+  <div class="ui standard test modal transition visible active" (clickOutside)="show = false" [exclude]="'button'">
+    <div class="header">
+      Select a Photo
+    </div>
+    <div class="image content">
+      <div class="ui medium image">
+        <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
+      </div>
+      <div class="description">
+        <div class="ui header">Default Profile Image</div>
+        <p>We've found the following <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated
+          with your e-mail address.</p>
+        <p>Is it okay to use this photo?</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button" (click)="show = !show">
+        Nope
+      </div>
+      <div class="ui positive right labeled icon button" (click)="show = !show">
+        Yep, that's me
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.modals {
+  display: flex !important;
+}
+
+.hidden.transition {
+  z-index: -5;
+}

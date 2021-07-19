@@ -1,0 +1,25 @@
+<div class="ui dimmer modals page transition visible active" (click)="onModalClose()">
+  <div class="ui standard test modal transition visible active" (click)="$event.stopPropagation()">
+    <ng-content select=".header"></ng-content>
+    <div class="image content">
+      <ng-content select="[usrImg]"></ng-content>
+      <div class="description">
+        <div class="ui header">Default Profile Image</div>
+        <ng-content select="[modalContent]"></ng-content>
+      </div>
+    </div>
+
+    <div class="actions">
+      <ng-content select="[modalFooter]"></ng-content>
+    </div>
+
+    <div class="actions actions-default">
+      <div class="ui black deny button" (click)="onModalClose()">
+        OK
+      </div>
+    </div>
+<!--    <ng-content select=".actions"></ng-content>-->
+<!--  </div>-->
+</div>
+
+
