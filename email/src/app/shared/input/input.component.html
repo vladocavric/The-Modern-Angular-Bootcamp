@@ -1,0 +1,12 @@
+<div class="field">
+  <label>{{label}}</label>
+  <input [type]="inputType" [formControl]="control">
+  <div *ngIf="showError()" class="ui pointing red basic label">
+    <p *ngIf="control.errors.required">This field is required</p>
+    <p *ngIf="control.errors.minlength">The minimum amount of characters is {{control.errors.minlength.requiredLength}}</p>
+    <p *ngIf="control.errors.maxlength">The maximum amount of characters allowed is {{control.errors.maxlength.requiredLength}} </p>
+    <p *ngIf="control.errors.pattern">Invalid Entry</p>
+    <p *ngIf="control.errors.nonUniqueUsername">The username needs to be unique, please enter new one</p>
+    <p *ngIf="control.errors.networkIssue">Ooooops, it seems that you do not have internet</p>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bulma/css/bulma.css";
+.d-flex {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+span.searchmatch, a {
+  color: #00d1b2;
+  font-weight: bold;
+}
+

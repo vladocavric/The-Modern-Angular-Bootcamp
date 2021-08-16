@@ -1,0 +1,6 @@
+<div>
+  <button (click)="onGetPhoto()">Show Photo</button>
+</div>
+
+<img *ngIf="photoSrc" [src]="photoSrc" alt="unsplash photo">
+

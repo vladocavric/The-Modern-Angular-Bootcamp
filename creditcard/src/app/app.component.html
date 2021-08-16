@@ -1,0 +1,49 @@
+<div class="container d-flex">
+  <div class="card-illustration">
+    <div class="card">
+      <div class="d-flex space-b">
+        <p>Card Number</p>
+        <div class="logo">
+          <img *ngIf="cardBrand" [src]="cardBrandSrc" alt="logo">
+        </div>
+      </div>
+      <div class="card-fill">{{cardNumber}}</div>
+      <div class="d-flex card__bottom">
+        <div>
+          <p>Name</p>
+          <div class="card-fill">{{name}}</div>
+        </div>
+        <div>
+          <p>Expiration</p>
+          <div class="card-fill">{{expirationDate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-form">
+    <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" formControlName="name" [(ngModel)]="name">
+      <div class="h-30">
+        <p class="error-msg c-red" *ngIf="creditCardForm.get('name').invalid && creditCardForm.get('name').touched">nesto</p>
+      </div>
+      <label for="cardNumber">Card Number</label>
+      <input type="number" id="cardNumber" name="cardNumber" formControlName="cardNumber" [(ngModel)]="cardNumber" (input)="onCCInput()">
+      <div class="d-flex space-b">
+        <div>
+          <label for="expirationDate">Expiration</label>
+          <input type="text" id="expirationDate" name="expirationDate" formControlName="expirationDate"
+                 [(ngModel)]="expirationDate">
+
+        </div>
+        <div>
+          <label for="securityCode">Security Code</label>
+          <input type="number" id="securityCode" name="securityCode" formControlName="securityCode"
+                 [(ngModel)]="securityCode">
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+      <button class="btn btn-primary" type="button" (click)="onReset()">Reset</button>
+    </form>
+  </div>
+</div>

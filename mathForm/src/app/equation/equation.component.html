@@ -1,0 +1,13 @@
+<form [formGroup]="mathForm">
+  <div class="equation">
+    {{a}} + {{b | json}} =
+  </div>
+  <input appAnswerHighlight formControlName="answer">
+</form>
+<div class="stats">
+  {{secondsPerSolution | number: '1.1-3'}}
+</div>
+
+<!--<div>Form is invalid: {{mathForm.invalid}}</div>-->
+<!--<div>Form Values: {{mathForm.value | json}}</div>-->
+<!--<div>Form Errors: {{mathForm.errors | json}}</div>-->
