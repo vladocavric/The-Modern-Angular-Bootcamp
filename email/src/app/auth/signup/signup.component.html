@@ -1,14 +1,16 @@
 <div class="ui container">
   <h1>Create an Account</h1>
-  <form [formGroup]="authForm" class="ui form">
+  <form [formGroup]="authForm" class="ui form" (ngSubmit)="onSubmit()">
     <app-input inputType="text" label="Username" [control]="authForm.get('username')"></app-input>
     <app-input inputType="password" label="Password" [control]="authForm.get('password')"></app-input>
-    <app-input inputType="password" label="Password Confirm" [control]="authForm.get('passwordConfirm')"></app-input>
+    <app-input inputType="password" label="Password Confirm" [control]="authForm.get('passwordConfirmation')"></app-input>
     <div
-      *ngIf="authForm.errors && authForm.controls.password.touched && authForm.controls.passwordConfirm.touched &&
-    authForm.controls.password.dirty && authForm.controls.passwordConfirm.dirty "
+      *ngIf="authForm.errors && authForm.controls.password.touched && authForm.controls.passwordConfirmation.touched &&
+    authForm.controls.password.dirty && authForm.controls.passwordConfirmation.dirty"
       class="ui pointing red basic label">
-      <p *ngIf="authForm.errors.passwordDontMatch">Password and Confirm password needs to match</p>
+      <p *ngIf="authForm.errors.passwordDontMatch | async">Password and Confirm password needs to match</p>
+      <p *ngIf="authForm.errors.noInternet">Sorry but it seems that you dont have an internet connection</p>
+      <p *ngIf="authForm.errors.unknownError">Oooops something went wrong</p>
     </div>
     <div>
       <button [disabled]="authForm.invalid" class="ui button primary" type="submit">Submit</button>

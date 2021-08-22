@@ -1,1 +1,19 @@
-<p>signin works!</p>
+<div class="ui container">
+  <h1>Sign In</h1>
+  <form [formGroup]="authForm" class="ui form" (ngSubmit)="onSubmit()">
+    <app-input inputType="text" label="Username" [control]="authForm.get('username')"></app-input>
+    <app-input inputType="password" label="Password" [control]="authForm.get('password')"></app-input>
+    <div
+      *ngIf="authForm.errors"
+      class="ui pointing red basic label">
+      <p *ngIf="authForm.errors.wrongCred">wrong username or password</p>
+      <p *ngIf="authForm.errors.noInternet">Sorry but it seems that you dont have an internet connection</p>
+      <p *ngIf="authForm.errors.unknownError">Oooops something went wrong</p>
+    </div>
+    <div>
+      <button [disabled]="authForm.invalid" class="ui button primary" type="submit">Log In</button>
+    </div>
+  </form>
+</div>
+
+
