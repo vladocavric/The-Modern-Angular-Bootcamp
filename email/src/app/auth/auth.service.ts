@@ -4,18 +4,19 @@ import {BehaviorSubject} from "rxjs";
 import {tap} from "rxjs/operators";
 
 
-interface username {
+interface Username {
   username: string
 }
-interface signedInResponse extends username{
+interface SignedInResponse extends Username{
   authenticated: boolean,
+  username: string
 }
 
-interface loginCred extends username {
+interface LoginCred extends Username {
   password: string,
 }
 
-interface newUser extends loginCred{
+interface NewUser extends LoginCred{
   passwordConfirmation: string | null
 }
 
@@ -25,6 +26,7 @@ interface newUser extends loginCred{
 export class AuthService {
   baseURL = 'https://api.angular-email.com/auth/';
   signedIn$ = new BehaviorSubject(null)
+  username = ''
 
   constructor(private http: HttpClient) {
   }
@@ -35,19 +37,20 @@ export class AuthService {
     })
   }
 
-  signup(credentials: newUser) {
+  signup(credentials: NewUser) {
     return this.http.post<{ username: string }>(`${this.baseURL}signup`, credentials).pipe(
-      tap(() => {
+      tap(({username}) => {
         this.signedIn$.next(true)
+        this.username = username
       })
     )
   }
 
   checkAuth() {
-    return this.http.get<signedInResponse>(`${this.baseURL}signedin`).pipe(
-      tap(({authenticated}) => {
+    return this.http.get<SignedInResponse>(`${this.baseURL}signedin`).pipe(
+      tap(({authenticated, username}) => {
         this.signedIn$.next(authenticated)
-        console.log('auth', authenticated)
+        this.username = username
       })
     )
   }
@@ -62,10 +65,11 @@ export class AuthService {
     )
   }
 
-  signIn(credentials: loginCred) {
-    return this.http.post<username>(`${this.baseURL}signin`, credentials).pipe(
-      tap(() => {
+  signIn(credentials: LoginCred) {
+    return this.http.post<Username>(`${this.baseURL}signin`, credentials).pipe(
+      tap(({username}) => {
         this.signedIn$.next(true)
+        this.username = username
       })
     )
   }

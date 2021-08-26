@@ -1,0 +1,10 @@
+<button class="ui blue button fluid" (click)="showModal = true">Replay</button>
+<app-modal (dismiss)="showModal = false" *ngIf="showModal">
+  <div modalTitle>Compose</div>
+  <div>
+    <app-email-form (emailSubmit)="onSubmit($event)" [email]="email"></app-email-form>
+  </div>
+<!--    <div modalFooter>-->
+<!--      <button type="submit" class="ui primary button" (click)="onDismissClick()">Cancel</button>-->
+<!--    </div>-->
+</app-modal>

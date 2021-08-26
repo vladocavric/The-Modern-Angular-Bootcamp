@@ -1,0 +1,30 @@
+.item a {
+  color: black;
+}
+
+.item.active {
+  background: rgba(128, 128, 128, 0.13);
+}
+a.active {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+a.active:before {
+  content: '>';
+  font-size: 20px;
+  margin-right: 10px;
+  align-self: center;
+}
+
+.trim {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.content.trim {
+  overflow: hidden;
+}
