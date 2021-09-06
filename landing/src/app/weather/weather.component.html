@@ -1,0 +1,7 @@
+<div class="d-flex f-column full-height justify-center">
+  <div *ngFor="let weather of weatherData" class="box">
+    <div>{{weather.temperature | number: '1.0-0'}}&deg;C</div>
+    <div class="separator"></div>
+    <div>{{weather.date | date: 'E'}}</div>
+  </div>
+</div>

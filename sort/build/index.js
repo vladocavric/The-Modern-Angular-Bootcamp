@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var NumbersCollection_1 = require("./NumbersCollection");
+var CharactersCollection_1 = require("./CharactersCollection");
+var LinkedList_1 = require("./LinkedList");
+var numbersToSort = [9, 3, 2, 11, -5];
+var stringToSort = 'Ribay';
+var numbersCollection = new NumbersCollection_1.NumbersCollection(numbersToSort);
+var charactersCollection = new CharactersCollection_1.CharactersCollection(stringToSort);
+var linedList = new LinkedList_1.LinkedList();
+numbersCollection.sort();
+console.log(numbersCollection);
+charactersCollection.sort();
+console.log(charactersCollection);
+// console.log(numbersCollection.data)
+linedList.add(500);
+linedList.add(-3);
+linedList.add(0);
+linedList.add(5);
+linedList.sort();
+linedList.print();

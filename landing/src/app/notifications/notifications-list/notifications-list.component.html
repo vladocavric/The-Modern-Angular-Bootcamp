@@ -1,0 +1,5 @@
+<div *ngFor="let message of messages | async" class="alert d-flex justify-content-between notification"
+     [ngClass]="message.type === 'error' ? 'alert-danger' : 'alert-success'">
+  {{message.message}}
+  <button class="btn-close" (click)="onClose(message.id)"></button>
+</div>

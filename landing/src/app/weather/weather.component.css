@@ -1,0 +1,17 @@
+.box {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 1px 0 1px;
+  padding: 10px;
+  text-align: center;
+}
+
+.box:last-child {
+  border-bottom: 1px solid black;
+}
+
+.separator {
+  margin: 3px auto 3px;
+  width: 12px;
+  border-bottom: 2px solid green;
+}
